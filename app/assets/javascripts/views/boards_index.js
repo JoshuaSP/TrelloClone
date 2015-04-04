@@ -1,5 +1,5 @@
 TrelloClone.Views.BoardsIndex = Backbone.View.extend({
-  template: JST['board_index'],
+  template: JST['boards_index'],
   addBoardForm: JST['add_board_form'],
 
   events: {
@@ -51,6 +51,13 @@ TrelloClone.Views.BoardsIndex = Backbone.View.extend({
   },
 
   addBoard: function () {
-    // this.$
+    var title = this.$addBoardForm.find('title').val();
+    var board = new this.model({ title: title });
+    board.save({}, {
+      success: function () {
+        Backbone.history.navigate('boards/' + board.id, { trigger: true });
+      }
+    });
+    this.removeBoardForm();
   }
 });
