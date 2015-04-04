@@ -1,0 +1,11 @@
+<h1 class="center">Your Boards</h1>
+<div class="boards-container container">
+  <% boards.each(function (board) { %>
+    <a class="board-index-item" href="#boards/<%= board.id %>" >
+      <%= board.get('title') %>
+    </a>
+  <% }) %>
+  <div class="add-board-container">
+    <a class="add-board" href="javascript:void(0)">Create new board...</a>
+  </div>
+</div>

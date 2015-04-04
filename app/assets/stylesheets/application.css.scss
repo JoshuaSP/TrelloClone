@@ -1,0 +1,148 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/dassets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require jquery.ui.all
+ *= require_tree .
+ */
+
+@import 'bootstrap';
+@import 'font-awesome';
+
+$principal-background: #53adcb;
+$selected-background: #3185a1;
+$neutral-background: #aaa;
+$selected-neutral: #777;
+$neutral-text: #eee;
+$selected-black: #555;
+
+
+.boards-container {
+  margin: 40px auto;
+  width: 1080px;
+  padding: 0;
+  position: relative;
+}
+
+.main {
+}
+
+.center {
+  text-align: center;
+  margin-top: 50px;
+}
+
+a {
+  text-decoration: none;
+
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+
+.board-index-item {
+  background-color: $principal-background;
+  border-radius: 3px;
+  color: white;
+  float: left;
+  font-size: 20px;
+  font-weight: bold;
+  height: 100px;
+  margin: 30px;
+  padding-left: 15px;
+  padding-top: 15px;
+  transition: all 200ms;
+  transition-property: background-color;
+  width: 300px;
+
+  &:hover {
+    background-color: $selected-background;
+    color: white;
+  }
+}
+
+
+.add-board {
+  @extend .board-index-item;
+  font-weight: normal;
+  text-align: center;
+  padding: 32px 0;
+  font-size: 18px;
+  margin: 0;
+  color: $neutral-text;
+  transition-property: background-color, color;
+
+  background-color: $neutral-background;
+
+  &:hover {
+    background-color: $selected-neutral;
+  }
+}
+
+.add-board-container {
+  height: 100px;
+  width: 300px;
+  margin: 30px 30px;
+  float: left;
+  position: relative;
+}
+
+.add-board-form {
+  width: 250px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 1;
+  height: 200px;
+  background-color: white;
+  border: 1px solid #d6dadc;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.149) 0 1px 6px 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.149) 0 1px 6px 0;
+  opacity: 0;
+  transition: opacity 250ms;
+
+  .submit {
+    background-color: green;
+    float: left;
+    color: white;
+    margin-top: 10px;
+  }
+
+  .hr {
+    margin: 10px 0;
+  }
+
+  .cancel {
+    float: right;
+    margin: 5px 12px 0 0;
+    font-size: 20px;
+
+    &:hover {
+      cursor: pointer;
+      color: $selected-black;
+    }
+  }
+
+  .form-control {
+    margin-top: 5px
+  }
+
+  h4 {
+    float: left;
+    margin-top: 5px;
+  }
+
+  hr {
+    margin-top: 30px;
+  }
+}
